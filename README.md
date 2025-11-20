@@ -1,16 +1,200 @@
-# React + Vite
+# Proyecto React + Vite — eCommerce estilo Mercado Libre
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una réplica educativa de una plataforma tipo **Mercado Libre**, desarrollada con **React + Vite**, **React Router DOM**, **React Bootstrap**, **React Hook Form**, **SweetAlert2** y un **servidor fake con db.json** para simular una API.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologías utilizadas
 
-## React Compiler
+### 1. **React + Vite**
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+* Proyecto inicializado con Vite por su velocidad y simplicidad.
+* Estructura base del proyecto creada con:
 
-## Expanding the ESLint configuration
+```bash
+npm create vite@latest nombre-proyecto --template react
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Instalación de dependencias:
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+### 2. **React Router DOM**
+
+Usado para manejar rutas protegidas, públicas y privadas.
+
+Instalación:
+
+```bash
+npm install react-router-dom
+```
+
+Se creó un router con páginas como:
+
+* Home
+* Productos
+* Detalle
+* Login / Registro
+* Dashboard (Admin)
+
+---
+
+### 3. **React Bootstrap**
+
+Usado para estilos rápidos y componentes responsivos.
+
+Instalación:
+
+```bash
+npm install react-bootstrap bootstrap
+```
+
+Agregar Bootstrap en `main.jsx`:
+
+```javascript
+import 'bootstrap/dist/css/bootstrap.min.css';
+```
+
+---
+
+### 4. **React Hook Form**
+
+Librería para formularios simples y eficientes.
+
+Instalación:
+
+```bash
+npm install react-hook-form
+```
+
+Usado para:
+
+* Formularios de Login y Registro
+* Validaciones de inputs
+* Formularios para CRUD de productos
+
+---
+
+### 5. **SweetAlert2 (o alternativa)**
+
+Usado para alertas modernas de éxito o error.
+
+Instalación:
+
+```bash
+npm install sweetalert2
+```
+
+Ejemplo de uso:
+
+```javascript
+import Swal from 'sweetalert2';
+
+Swal.fire('Bien hecho!', 'Usuario creado correctamente', 'success');
+```
+
+---
+
+### 6. **db.json (Fake API)**
+
+Usamos **json-server** para simular endpoints como productos, usuarios, etc.
+
+Instalación:
+
+```bash
+npm install -g json-server
+```
+
+Ejecución:
+
+```bash
+json-server --watch db.json --port 3000
+```
+
+Estructura típica del `db.json`:
+
+```json
+{
+  "usuarios": [],
+  "productos": []
+}
+```
+
+---
+
+# 📁 Estructura del Proyecto
+
+```
+src/
+  ├── Components/
+  ├── Views/
+  ├── Router/
+  ├── Utils/
+  ├── context/
+  ├── assets/
+  ├── App.jsx
+  └── main.jsx
+```
+
+Incluye:
+
+* **Rutas protegidas** para admin
+* **UserStorage** para manejar sesión con localStorage
+* **Servicios** para CRUD de usuarios y productos
+
+---
+
+# 🧪 Funcionalidades principales actuales
+
+* Registro de usuario (solo usuario normal, no admin)
+* Login + manejo de sesión local
+* Productos mockeados con db.json
+* CRUD básico para admin
+* Navegación completa con React Router
+
+---
+
+# 📌 Roadmap — Próximas mejoras / Librerías futuras
+
+Aquí iremos agregando todo lo que sumemos al proyecto:
+
+### 🔧 Integraciones futuras
+
+* ⏳ **OpenAI Realtime API** para tener un "asistente dentro del sitio"
+* ⏳ **Carrito de compras con contexto global**
+* ⏳ **Sistema de favoritos**
+* ⏳ **Buscador avanzado** con filtros
+* ⏳ **API externa de productos reales** (Mercado Libre API u otra)
+* ⏳ **Sistema de roles más complejo**
+* ⏳ **Protección avanzada de rutas**
+* ⏳ **Animaciones con Framer Motion**
+* ⏳ **Testing con Jest + RTL**
+
+---
+
+# 📝 Notas del desarrollo
+
+* Proyecto trabajado con metodología **Scrum**
+* Uso de **Trello** para gestionar tareas
+* Componentes organizados según atomic design (opcional)
+* Buenas prácticas aplicadas: separación lógica, hooks personalizados, servicios
+
+---
+
+# 🧑‍💻 Scripts
+
+```bash
+npm run dev     # Modo desarrollo
+npm run build   # Compilar producción
+npm run preview # Previsualizar build
+npm run server # Modo base de datos FAKE API
+```
+
+---
+
+¿Querés que agregue imágenes, diagramas, badges, o una sección de contribución como si fuera un repo profesional?
