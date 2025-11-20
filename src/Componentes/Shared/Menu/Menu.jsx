@@ -1,3 +1,5 @@
+import Login from "../../Views/Login/Login"
+import Registro from "../../Views/Registro/Registro"
 import { Container, Dropdown, NavDropdown, Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router";
 export const Menu = () => {
