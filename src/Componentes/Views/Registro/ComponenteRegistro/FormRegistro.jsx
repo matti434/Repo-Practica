@@ -2,8 +2,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import ValidacionesForm from "../../../Utils/ValidacionesForm";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import "./FormRegistro.css"
 
-export const FormRegistro = ({ onSubmit, onClose }) => {
+const FormRegistro = ({ onSubmit, onClose }) => {
   const {
     register,
     handleSubmit, // ← Corregido de "manipularSubmit"
@@ -124,3 +125,5 @@ export const FormRegistro = ({ onSubmit, onClose }) => {
     </Form>
   );
 };
+
+export default FormRegistro;
