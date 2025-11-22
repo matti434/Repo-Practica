@@ -9,8 +9,8 @@ export const NavBarPrincipal = ({ onAbrirRegistro }) => {
         {/* IZQUIERDA → LOGO */}
         <Navbar.Brand as={Link} to="/" className="logo-navegacion">
           <img
-            src="/mercado-libre-logo.png"
-            alt="Logo Mercado Libre"
+            src="#"
+            alt="Rolling Market"
             width={160}
             height={50}
           />
