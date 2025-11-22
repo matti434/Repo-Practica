@@ -65,7 +65,7 @@ export const FormLogin = () => {
         </Col>
         <Col>
           <Button variant="primary" type="submit" className="w-100">
-            Registrarse
+            Iniciar Sesion
           </Button>
         </Col>
       </Row>
