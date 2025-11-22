@@ -1,6 +1,8 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+export const FECHA_MINIMA= new Date(1945,0,1);
+export const FECHA_MAXIMA= new Date(2006,11,31);
 // zod una libreria de validacion de datos tipo "nivel backend pero frontend"
 const ValidacionesForm = z
   .object({
@@ -27,9 +29,7 @@ const ValidacionesForm = z
       .min(1, "La fecha de nacimiento es requerida")
       .refine((fecha) => {
         const fechaNac = new Date(fecha);
-        const minDate = new Date(1955, 0, 1);
-        const maxDate = new Date(2006, 11, 31);
-        return fechaNac >= minDate && fechaNac <= maxDate;
+        return fechaNac >= FECHA_MINIMA && fechaNac <= FECHA_MAXIMA;
       }, "Debes tener entre 18 y 68 años (nacido entre 1955-2006)"),
 
     contraseña: z
@@ -55,3 +55,4 @@ const ValidacionesForm = z
   );
 
 export default ValidacionesForm;
+export {FECHA_MINIMA,FECHA_MAXIMA};

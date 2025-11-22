@@ -2,6 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import ValidacionesForm from "../../../Utils/ValidacionesForm";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { FECHA_MAXIMA,FECHA_MINIMA } from "../../../Utils/ValidacionesForm";
 import "./FormRegistro.css"
 
 const FormRegistro = ({ onSubmit, onClose }) => {
@@ -20,9 +21,7 @@ const FormRegistro = ({ onSubmit, onClose }) => {
     onSubmit?.(data);
   };
 
-  // Calcular fechas límite para el calendario
-  const fechaMinima = new Date(1955, 0, 1).toISOString().split('T')[0]; // 1955-01-01
-  const fechaMaxima = new Date(2006, 11, 31).toISOString().split('T')[0]; // 2006-12-31
+
 
   return (
     <Form onSubmit={handleSubmit(procesarEnvio)}>
@@ -61,11 +60,11 @@ const FormRegistro = ({ onSubmit, onClose }) => {
           type="date"
           {...register("fechaNacimiento")}
           isInvalid={!!errors.fechaNacimiento} 
-          min={fechaMinima}
-          max={fechaMaxima}
+          min={FECHA_MINIMA.toISOString().split('T')[0]} // Convierte a formato ISO-'T' lo divide en dos partes- [0] toma la primera
+          max={FECHA_MAXIMA.toISOString().split('T')[0]}
         />
         <Form.Text className="text-muted">
-          Debe ser entre 1955 y 2006 (18+ años)
+          Debe ser entre 1945 y 2006 (18+ años)
         </Form.Text>
         <Form.Control.Feedback type="invalid">
           {errors.fechaNacimiento?.message}
