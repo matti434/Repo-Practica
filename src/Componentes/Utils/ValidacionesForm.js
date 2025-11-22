@@ -1,8 +1,61 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-export const FECHA_MINIMA= new Date(1945,0,1);
-export const FECHA_MAXIMA= new Date(2006,11,31);
+export const FECHA_MINIMA = new Date(1945, 0, 1);
+export const FECHA_MAXIMA = new Date(2006, 11, 31);
+
+const PAISES_VALIDOS = [
+  "Argentina",
+  "Bolivia",
+  "Brasil",
+  "Chile",
+  "Colombia",
+  "Costa Rica",
+  "Cuba",
+  "Ecuador",
+  "El Salvador",
+  "España",
+  "Estados Unidos",
+  "Guatemala",
+  "Honduras",
+  "México",
+  "Nicaragua",
+  "Panamá",
+  "Paraguay",
+  "Perú",
+  "Puerto Rico",
+  "República Dominicana",
+  "Uruguay",
+  "Venezuela",
+].sort();
+
+const PAISES_POR_REGION = {
+  "América del Sur": [
+    "Argentina",
+    "Bolivia",
+    "Brasil",
+    "Chile",
+    "Colombia",
+    "Ecuador",
+    "Paraguay",
+    "Perú",
+    "Uruguay",
+    "Venezuela",
+  ],
+  "América Central": [
+    "Costa Rica",
+    "Cuba",
+    "El Salvador",
+    "Guatemala",
+    "Honduras",
+    "Nicaragua",
+    "Panamá",
+  ],
+  "América del Norte": ["Estados Unidos", "México"],
+  Caribe: ["Puerto Rico", "República Dominicana"],
+  Europa: ["España"],
+};
+
 // zod una libreria de validacion de datos tipo "nivel backend pero frontend"
 const ValidacionesForm = z
   .object({
@@ -22,6 +75,15 @@ const ValidacionesForm = z
       .regex(
         /^[^\s<>()\[\]\\.,;:"%]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
         "Email inválido"
+      ),
+
+    // Nuevo campo: País
+    pais: z
+      .string()
+      .min(1, "El país es requerido")
+      .refine(
+        (pais) => PAISES_VALIDOS.includes(pais),
+        "Por favor selecciona un país válido de la lista"
       ),
 
     fechaNacimiento: z
@@ -55,4 +117,4 @@ const ValidacionesForm = z
   );
 
 export default ValidacionesForm;
-export {FECHA_MINIMA,FECHA_MAXIMA};
+export { FECHA_MINIMA, FECHA_MAXIMA,PAISES_VALIDOS,PAISES_POR_REGION };
