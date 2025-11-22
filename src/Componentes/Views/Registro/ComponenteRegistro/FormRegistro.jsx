@@ -8,12 +8,12 @@ import "./FormRegistro.css"
 const FormRegistro = ({ onSubmit, onClose }) => {
   const {
     register,
-    handleSubmit, // ← Corregido de "manipularSubmit"
+    handleSubmit,
     formState: { errors },
     reset,
     watch,
   } = useForm({
-    resolver: zodResolver(ValidacionesForm) // ← Corregido de "resolve"
+    resolver: zodResolver(ValidacionesForm) //(zodResolver) traduccion o puente entre RHF y Zod(esquema de ValidacionesForm) 
   });
 
   const procesarEnvio = (data) => {

@@ -2,7 +2,7 @@ import { Navbar, Nav, Button, Form, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 
-export const NavBarPrincipal = ({ onAbrirRegistro }) => {
+export const NavBarPrincipal = ({ onAbrirRegistro, onAbrirLogin }) => {
   return (
     <Navbar expand="lg" className="barra-navegacion">
       <Container className="contenedor-navegacion">
@@ -40,9 +40,9 @@ export const NavBarPrincipal = ({ onAbrirRegistro }) => {
           </Nav.Item>
 
           <Nav.Item className="item-navegacion">
-            <Nav.Link as={Link} to="/">
+            <Button className="boton-login" onClick={onAbrirLogin}>
               Login
-            </Nav.Link>
+            </Button>
           </Nav.Item>
 
           <Nav.Item className="item-navegacion">
