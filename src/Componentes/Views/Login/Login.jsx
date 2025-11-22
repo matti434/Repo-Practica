@@ -1,6 +1,7 @@
 export const Login = ({ onClose }) => {
-  const onSubmit = (data) => {
-    console.log("envio de datos login");
+  
+    const onSubmit = (data) => {
+    console.log("envio de datos login",data);
     onClose();
   };
 
